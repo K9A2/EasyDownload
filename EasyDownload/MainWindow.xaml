@@ -5,4 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyDownload"
         mc:Ignorable="d"
-        Title="EasyDownload" Height="360" Width="550"/>
+        Title="EasyDownload" Height="360" Width="560" Icon="download.ico">
+    <Grid Margin="0">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="25" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" Margin="140,10,10,0" VerticalContentAlignment="Center" FontSize="13.333" VerticalAlignment="Top" Height="25"/>
+        <DataGrid x:Name="dataGrid" Margin="10,45,10,10"/>
+    </Grid>
+</Window>
