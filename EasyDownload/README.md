@@ -8,11 +8,11 @@
 
 + [Btbook - 磁力搜索](http://www.btmeet.org/)
 + [BT磁力链 - 最好用的磁力链接搜索引擎](http://www.bturls.net/)
-+ [磁力搜 - CiLiSou.CN](http://www.cilisou.cn/)
++ [磁力搜-CiLiSou.CN](http://www.cilisou.cn/)
 + [BT樱桃 - 磁力链接搜索引擎](http://www.btcherry.info/)
 + [BT岛 - 最好用的磁力链接搜索引擎](http://www.btdao5.com/)
 + [蜘蛛磁力搜索 - 磁力链接搜索引擎](http://www.zhizhucili.net/)
-+ [磁力链 - 磁力搜索 - 种子搜索 - 迅雷种子下载](http://www.cililian.com/)
++ [磁力链-磁力搜索-种子搜索-迅雷种子下载](http://www.cililian.com/)
 + [RunBT - 磁力搜索_BT搜索_磁力链接_种子搜索](http://www.runbt.cc/)
 + [磁力链接 - BT种子磁力链接搜索引擎](http://cililian.me/)
 
