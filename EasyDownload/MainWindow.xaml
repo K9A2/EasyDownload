@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EasyDownload" Height="360" Width="560" Icon="download.ico">
     <Grid Margin="0">
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="25" VerticalContentAlignment="Center">
+        <ComboBox x:Name="cbo_main" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="25" VerticalContentAlignment="Center" SelectedIndex="0">
             <ComboBoxItem Content="Btbook"/>
             <ComboBoxItem Content="BT磁力链"/>
             <ComboBoxItem Content="磁力搜"/>
@@ -18,7 +18,8 @@
             <ComboBoxItem Content="RunBT"/>
             <ComboBoxItem Content="磁力链接"/>
         </ComboBox>
-        <TextBox x:Name="textBox" TextWrapping="Wrap" Margin="140,10,10,0" VerticalContentAlignment="Center" FontSize="13.333" VerticalAlignment="Top" Height="25"/>
-        <DataGrid x:Name="dataGrid" Margin="10,45,10,10"/>
+        <TextBox x:Name="txt_main" TextWrapping="Wrap" Margin="140,10,113.333,0" VerticalContentAlignment="Center" FontSize="13.333" VerticalAlignment="Top" Height="25"/>
+        <DataGrid x:Name="dg_main" Margin="10,45,10,10"/>
+        <Button x:Name="button" Content="Search" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="93.333" Height="25"/>
     </Grid>
 </Window>
