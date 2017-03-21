@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static EasyDownload.Util;
 
 namespace EasyDownload
 {
@@ -25,5 +26,15 @@ namespace EasyDownload
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 主界面搜索按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_search_Click(object sender, RoutedEventArgs e)
+        {
+            GetBtbook(txt_keyword.Text.Trim());
+            
+        }
     }
 }
