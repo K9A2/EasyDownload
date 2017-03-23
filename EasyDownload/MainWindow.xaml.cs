@@ -58,7 +58,6 @@ namespace EasyDownload
             }
 
             //获取搜索结果
-            //DataTable result = GetBtbook(txt_keyword.Text.Trim());
             if (result.Rows.Count == 0)
             {
                 MessageBox.Show("服务器开小差了，请稍后尝试吧。");
