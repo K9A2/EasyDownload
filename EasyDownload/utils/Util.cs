@@ -75,7 +75,30 @@ namespace EasyDownload
         }
 
 
-        
+        /// <summary>
+        /// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+        /// </summary>
+        /// <param name="prefix">连接前缀</param>
+        /// <param name="keyword">关键字</param>
+        /// <param name="suffix">后缀</param>
+        public static DataTable GetResultTable(string prefix, string keyword, string suffix)
+        {
+            DataTable result = null;
+            //处理逻辑
+            return result;
+        }
+
+        /// <summary>
+        /// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+        /// </summary>
+        /// <param name="prefix">连接前缀</param>
+        /// <param name="keyword">关键字</param>
+        public static DataTable GetResultTable(string prefix, string keyword)
+        {
+            DataTable result = null;
+            //处理逻辑
+            return result;
+        }
 
 
         #endregion

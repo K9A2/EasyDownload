@@ -157,7 +157,29 @@
 
 ### 3.3 相关函数设计
 
-从上面的分析可以看出，从这些网站获得磁力链接的位置有两大种，三小种：
-+ 能直接在搜索结果页面提取的
-  + 
-+ 需要从搜索结果页获得磁力链接所在的具体网页后才能获取的
+而就获取搜索结果页面这一步来说，除了 **BT樱桃 - 磁力链接搜索引擎** 和 **磁力链接 - BT种子磁力链接搜索引擎** 是「前缀 + 关键字」的模式，其余的都是「前缀 + 关键字 + 后缀」的模式。所以在设计本步骤的获取方法的时候，就可以用一个函数重载两次，分别对应「前缀 + 关键字」的模式和「前缀 + 关键字 + 后缀」的模式。
+```csharp
+
+//由于这些使用「前缀 + 关键字 + 后缀」模式的网站都能在搜索结果页直接获取磁力链接
+//故直接用一个方法获取即可
+
+/// <summary>
+/// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+/// </summary>
+/// <param name="prefix">连接前缀</param>
+/// <param name="keyword">关键字</param>
+/// <param name="suffix">后缀</param>
+public static DataTable GetResultTable(string prefix, string keyword, string suffix){
+    //处理逻辑
+}
+
+/// <summary>
+/// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+/// </summary>
+/// <param name="prefix">连接前缀</param>
+/// <param name="keyword">关键字</param>
+public static DataTable GetResultTable(string prefix, string keyword){
+    //处理逻辑
+}
+
+```
