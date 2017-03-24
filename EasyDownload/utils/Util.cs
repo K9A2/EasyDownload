@@ -77,6 +77,7 @@ namespace EasyDownload
 
         /// <summary>
         /// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+        /// 适配模式「前缀 + 关键字 + 后缀」
         /// </summary>
         /// <param name="prefix">连接前缀</param>
         /// <param name="keyword">关键字</param>
@@ -90,6 +91,7 @@ namespace EasyDownload
 
         /// <summary>
         /// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
+        /// 适配模式「前缀 + 关键字」
         /// </summary>
         /// <param name="prefix">连接前缀</param>
         /// <param name="keyword">关键字</param>
