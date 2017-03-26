@@ -88,7 +88,7 @@ namespace EasyDownload
                 case 0:break;
                 //BT磁力链 - 最好用的磁力链接搜索引擎
                 case 1:
-                    GetBTCiLiLian(txt_keyword.Text.Trim());
+                    dg_result.ItemsSource = GetBTCiLiLian(txt_keyword.Text.Trim()).DefaultView;
                     break;
                 //磁力搜 - CiLiSou.CN
                 case 2:break;
@@ -107,6 +107,7 @@ namespace EasyDownload
                 default: break;
             }
 
+            /*
             //获取搜索结果
             if (result.Rows.Count == 0)
             {
@@ -116,6 +117,7 @@ namespace EasyDownload
             {
                 dg_result.ItemsSource = result.DefaultView;
             }
+            */
 
         }
     }

@@ -118,6 +118,103 @@ namespace EasyDownload
 
         }
 
+        /// <summary>
+        /// 获取 磁力搜 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetCiLiSou(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 BT樱桃 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetBTYingTao(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 BT岛 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetBTDao(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 蜘蛛磁力搜索 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetZhiZhuCiLiSouSuo(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 磁力链 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetCiLiLian(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 RunBT 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetRunBT(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 磁力链接 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetCiLiLianJie(string keyword)
+        {
+
+            DataTable result = null;
+
+            return result;
+
+        }
 
         /// <summary>
         /// 获取搜索结果，可以直接绑定到 dg_main 的 ItemsSource 中。
