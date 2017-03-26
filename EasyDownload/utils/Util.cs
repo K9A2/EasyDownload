@@ -38,10 +38,11 @@ namespace EasyDownload
         #region 第一类可以直接获取磁力链接的网站
 
         /// <summary>
-        /// 获取 Btbook 网站下的磁力链接
+        /// 获取 Btbook 网站下的磁力链接等信息
         /// </summary>
+        /// <param id="keyword">关键字</param>
         /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
-        public static DataTable GetBtbook(string keyword)
+        public static DataTable GetBTBook(string keyword)
         {
             //结果表
             DataTable result = GetFormattedTable();
@@ -67,6 +68,49 @@ namespace EasyDownload
             for (int i = 0; i < res_mag.Count; i++)
             {
                 row[3] = res_mag[i];
+                result.Rows.Add(row);
+            }
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// 获取 BT磁力链 网站下的磁力链接等信息
+        /// </summary>
+        /// <param name="keyword">关键字</param>
+        /// <returns>返回一个 DataGrid，直接绑定到 dg_result</returns>
+        public static DataTable GetBTCiLiLian(string keyword)
+        {
+
+            DataTable result = GetFormattedTable();
+
+            StringBuilder str = new StringBuilder(GetHtmlCode(@"http://www.bturls.net/search/" + keyword + @"_ctime_1.html"));
+
+            MatchCollection matches_li = Regex.Matches(str.ToString(), @"<li>\s*.*>(.|\n)*?</li>");
+
+            str.Clear();
+
+            for(int i = 0; i < matches_li.Count; i++)
+            {
+                str.Append(matches_li[i]);
+            }
+
+            MatchCollection matches_name = Regex.Matches(str.ToString(), "(?<=<div class=\"item-list\">).*?(?=\n)");
+
+            MatchCollection matches_date = Regex.Matches(str.ToString(), "(?<=创建日期：<span>).*?(?=</span>)");
+
+            MatchCollection matches_size = Regex.Matches(str.ToString(), "(?<=文件大小：<span>).*?(?=</span>)");
+
+            MatchCollection matches_mag = Regex.Matches(str.ToString(), "(?<=href=\"/).*?(?=\\.html)");
+
+            for (int i = 0; i < matches_li.Count; i++)
+            {
+                DataRow row = result.NewRow();
+                row[0] = Regex.Replace(matches_name[i].ToString(), "<(.|\n)+?>", "");
+                row[1] = matches_date[i].ToString();
+                row[2] = matches_size[i].ToString();
+                row[3] = "magnet:?xt=urn:btih:" + matches_mag[i].ToString();
                 result.Rows.Add(row);
             }
 
@@ -144,17 +188,17 @@ namespace EasyDownload
         #region 本部分为工具类函数
 
         /// <summary>
-        /// 构造一个用来保存搜索结果的DataTable
-        /// 其中包括Name、Date、Size和Link四列
+        /// 构造一个用来保存搜索结果的DataTable。
+        /// 其中包括Name[0]、Date[1]、Size[2]和Link[3]四列。
         /// </summary>
         /// <returns>结果表</returns>
         private static DataTable GetFormattedTable()
         {
             DataTable result = new DataTable("result");
             DataColumn dc = null;
-            //dc = result.Columns.Add("Name", Type.GetType("System.String"));
-            //dc = result.Columns.Add("Date", Type.GetType("System.String"));
-            //dc = result.Columns.Add("Size", Type.GetType("System.String"));
+            dc = result.Columns.Add("Name", Type.GetType("System.String"));
+            dc = result.Columns.Add("Date", Type.GetType("System.String"));
+            dc = result.Columns.Add("Size", Type.GetType("System.String"));
             dc = result.Columns.Add("Link", Type.GetType("System.String"));
 
             //返回结果
@@ -184,7 +228,7 @@ namespace EasyDownload
         /// </summary>
         /// <param name="link">目标链接地址</param>
         /// <returns>目的网页的html源代码</returns>
-        private static string GetHtmlCode(string link)
+        public static string GetHtmlCode(string link)
         {
 
             //获取指定页面的源代码,并返回包含此页面源代码的一个字符串
@@ -197,7 +241,7 @@ namespace EasyDownload
             myReq.Headers.Add("Accept-Language", "zh-cn,en-us;q=0.5");
             HttpWebResponse result = (HttpWebResponse)myReq.GetResponse();
             Stream receviceStream = result.GetResponseStream();
-            StreamReader readerOfStream = new StreamReader(receviceStream, System.Text.Encoding.GetEncoding("gb2312"));
+            StreamReader readerOfStream = new StreamReader(receviceStream, System.Text.Encoding.GetEncoding("utf-8"));
             strHTML = readerOfStream.ReadToEnd();
             readerOfStream.Close();
             receviceStream.Close();

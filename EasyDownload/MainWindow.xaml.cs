@@ -84,16 +84,25 @@ namespace EasyDownload
             //是「前缀 + 关键字」模式，其余都是「前缀 + 关键字 + 后缀」模式
             switch (cbo_main.SelectedIndex)
             {
-                case 0:
-                    result=GetResultTable()
+                //Btbook - 磁力搜索
+                case 0:break;
+                //BT磁力链 - 最好用的磁力链接搜索引擎
+                case 1:
+                    GetBTCiLiLian(txt_keyword.Text.Trim());
                     break;
-                case 1:break;
+                //磁力搜 - CiLiSou.CN
                 case 2:break;
+                //BT樱桃 - 磁力链接搜索引擎
                 case 3:break;
+                //BT岛 - 最好用的磁力链接搜索引擎
                 case 4:break;
+                //蜘蛛磁力搜索 - 磁力链接搜索引擎
                 case 5:break;
+                //磁力链 - 磁力搜索 - 种子搜索 - 迅雷种子下载
                 case 6:break;
+                //RunBT - 磁力搜索_BT搜索_磁力链接_种子搜索
                 case 7:break;
+                //磁力链接 - BT种子磁力链接搜索引擎
                 case 8:break;
                 default: break;
             }
