@@ -44,7 +44,7 @@ namespace EasyDownload
         public static DataTable GetBtbook(string keyword)
         {
             //结果表
-            DataTable result = GetReaultTable();
+            DataTable result = GetFormattedTable();
 
             //保存每一行
             DataRow row = result.NewRow();
@@ -82,9 +82,24 @@ namespace EasyDownload
         /// <param name="prefix">连接前缀</param>
         /// <param name="keyword">关键字</param>
         /// <param name="suffix">后缀</param>
-        public static DataTable GetResultTable(string prefix, string keyword, string suffix)
+        /// <param name="reg">磁力链接的正则表达式</param>
+        public static DataTable GetResultTable(string prefix, string keyword, string suffix, string reg)
         {
-            DataTable result = null;
+            //获取结果表
+            DataTable result = GetFormattedTable();
+
+            DataRow row = result.NewRow();
+
+            StringBuilder htmlCode = new StringBuilder(GetHtmlCode(prefix + keyword + suffix));
+
+            MatchCollection res_mag = Regex.Matches(htmlCode.ToString(), reg);
+
+            for (int i = 0; i < res_mag.Count; i++)
+            {
+                row[0] = res_mag[i];
+                result.Rows.Add(row);
+            }
+
             //处理逻辑
             return result;
         }
@@ -95,9 +110,24 @@ namespace EasyDownload
         /// </summary>
         /// <param name="prefix">连接前缀</param>
         /// <param name="keyword">关键字</param>
-        public static DataTable GetResultTable(string prefix, string keyword)
+        /// <param name="reg">磁力链接的正则表达式</param>
+        public static DataTable GetResultTable(string prefix, string keyword, string reg)
         {
-            DataTable result = null;
+            //获取结果表
+            DataTable result = GetFormattedTable();
+
+            DataRow row = result.NewRow();
+
+            StringBuilder htmlCode = new StringBuilder(GetHtmlCode(prefix + keyword));
+
+            MatchCollection res_mag = Regex.Matches(htmlCode.ToString(), reg);
+
+            for (int i = 0; i < res_mag.Count; i++)
+            {
+                row[0] = res_mag[i];
+                result.Rows.Add(row);
+            }
+
             //处理逻辑
             return result;
         }
@@ -118,13 +148,13 @@ namespace EasyDownload
         /// 其中包括Name、Date、Size和Link四列
         /// </summary>
         /// <returns>结果表</returns>
-        private static DataTable GetReaultTable()
+        private static DataTable GetFormattedTable()
         {
             DataTable result = new DataTable("result");
             DataColumn dc = null;
-            dc = result.Columns.Add("Name", Type.GetType("System.String"));
-            dc = result.Columns.Add("Date", Type.GetType("System.String"));
-            dc = result.Columns.Add("Size", Type.GetType("System.String"));
+            //dc = result.Columns.Add("Name", Type.GetType("System.String"));
+            //dc = result.Columns.Add("Date", Type.GetType("System.String"));
+            //dc = result.Columns.Add("Size", Type.GetType("System.String"));
             dc = result.Columns.Add("Link", Type.GetType("System.String"));
 
             //返回结果
